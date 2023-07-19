@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marketplace - Reis567</title>
+    <title>{% block title %}{% endblock title %}  Reis567</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
@@ -13,7 +13,7 @@
             <a href="#" class="text-lg font-semibold hover:text-gray-500 transition easy-in-out duration-500 ">Adicionar produto </a>
             <a href="#" class="text-lg font-semibold hover:text-gray-500 transition easy-in-out duration-500">Navegar </a>
 
-            <a href="#" class="px-6 py-3 text-lg font-semibold bg-teal-500 text-white rounded-xl hover:bg-teal-700 transition easy-in-out duration-500">Sign-up</a>
+            <a href="{% url 'core:signup' %}" class="px-6 py-3 text-lg font-semibold bg-teal-500 text-white rounded-xl hover:bg-teal-700 transition easy-in-out duration-500">Sign-up</a>
             <a href="#" class="px-6 py-3 text-lg font-semibold bg-sky-500 text-white rounded-xl hover:bg-sky-700 transition easy-in-out duration-500">Login</a>
         </div>
     </nav>
@@ -47,7 +47,7 @@
                 </li>
 
                 <li class="text-lg text-teal-500 hover:text-teal-700">
-                    <a href="{% url 'contact' %}">Contato</a>
+                    <a href="{% url 'core:contact' %}">Contato</a>
                 </li>
 
                 <li class="text-lg text-teal-500 hover:text-teal-700">

@@ -1,12 +1,12 @@
 {% extends 'core/base.html' %}
 
-{% block title %}Signup - {% endblock title %}
+{% block title %}Login - {% endblock title %}
 
 {% block content %}
 
 <div class="w-1/2 my-6 p-6 mx-auto bg-gray-100 rounded-xl">
     <h1 class="mb-6 text-3xl">
-        Sign up
+        Login
     </h1>
 
     <form action="" method="post">
@@ -18,19 +18,10 @@
             {{form.username}}
 
         </div>
-        <div class="mb-3">
-            <label class="inline-block mb-2" for="">Email</label><br>
-            {{form.email}}
 
-        </div>
         <div class="mb-3">
             <label class="inline-block mb-2" for="">Password</label><br>
-            {{form.password1}}
-
-        </div>
-        <div class="mb-3">
-            <label class="inline-block mb-2" for="">Repeat Password</label><br>
-            {{form.password2}}
+            {{form.password}}
 
         </div>
 

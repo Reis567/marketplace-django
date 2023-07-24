@@ -18,7 +18,7 @@ def new_conversation(request, item_pk):
     # Consulte as conversas relacionadas ao item onde o usuário atual é um membro
     conversations = Conversation.objects.filter(item=item).filter(members__in=[request.user.id])
 
-    # Se já existirem conversas para este item e usuário, não faça nada (declaração "pass")
+    # Se já existirem conversas para este item e usuário redirecione para ela
     if conversations:
         return redirect('conversation:detail',pk=conversations.first().id)
 

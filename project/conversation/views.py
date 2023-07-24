@@ -1,10 +1,12 @@
 # Importe os módulos e modelos necessários
 from django.shortcuts import render, get_object_or_404, redirect
 from item.models import Item
+from django.contrib.auth.decorators import login_required
 from .models import Conversation
 from .forms import ConversationMessageForm
 
 # Função de visualização para iniciar uma nova conversa
+@login_required
 def new_conversation(request, item_pk):
     # Obtenha o objeto do item com a chave primária (item_pk) fornecida do banco de dados
     item = get_object_or_404(Item, pk=item_pk)
@@ -53,3 +55,12 @@ def new_conversation(request, item_pk):
 
     # Renderize o template 'new.html' com os dados do formulário
     return render(request, 'conversation/new.html', {'form': form})
+
+
+@login_required
+def inbox(request):
+    conversations = Conversation.objects.filter(members__in=[request.user.id])
+
+    return render(request, 'conversation/inbox.html',{
+        'conversations':conversations,
+    })
